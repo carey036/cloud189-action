@@ -35,7 +35,6 @@ def main():
         "Accept-Encoding" : "gzip, deflate",
     }
     response = s.get(url,headers=headers)
-    print(response.text)
     if ("errorCode" in response.text):
         print(response.text)
     else:
