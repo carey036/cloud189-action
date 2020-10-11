@@ -57,7 +57,7 @@ def main():
         pushmsg += f"抽奖获得{description}\n\n"
     #print(pushmsg)
     pushdata = {"text":f"{username}天翼网盘打卡抽奖","desp":pushmsg}
-    s.post("https://sc.ftqq.com/SCU56081T354e97b00e50fb6e49baea6322553bbd5f82dfeb31777.send",data=pushdata)
+    print(s.post("https://sc.ftqq.com/SCU56081T354e97b00e50fb6e49baea6322553bbd5f82dfeb31777.send",data=pushdata).text)
 
 BI_RM = list("0123456789abcdefghijklmnopqrstuvwxyz")
 def int2char(a):
