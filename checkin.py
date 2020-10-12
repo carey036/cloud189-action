@@ -56,6 +56,9 @@ def main():
         print(f"抽奖获得{description}")
         pushmsg += f"抽奖获得{description}\n\n"
     #print(pushmsg)
+    with open("status.txt","w+") as f:
+            f.write(str(time.time()))
+            f.close()
     pushdata = {"text":f"{username}天翼网盘打卡抽奖","desp":pushmsg}
     print(s.post("https://sc.ftqq.com/SCU56081T354e97b00e50fb6e49baea6322553bbd5f82dfeb31777.send",data=pushdata).text)
 
@@ -139,7 +142,10 @@ def login(username, password):
     r = s.get(redirect_url)
     return s
     
-
+#print(__name__)
 if __name__ == "__main__":
-    main()
-
+    with open("status.txt","r") as f:
+        t = float(f.readline())
+        #print(t)
+    if(time.time() > t+3600*23):
+        main()
