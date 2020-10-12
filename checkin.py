@@ -144,8 +144,11 @@ def login(username, password):
     
 #print(__name__)
 if __name__ == "__main__":
-    with open("status.txt","r") as f:
-        t = float(f.readline())
-        #print(t)
+    try:
+        with open("status.txt","r") as f:
+            t = float(f.readline())
+            #print(t)
+    except:
+        t = 0
     if(time.time() > t+3600*23):
         main()
